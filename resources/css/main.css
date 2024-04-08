@@ -80,7 +80,7 @@ body{
     line-height: 1;
     transition: all 0.3s ease-in-out;
 }
-/* End of header */
+/* End of game-header */
 
 /* Start of game-body */
 .game-container{
@@ -89,7 +89,6 @@ body{
     margin: auto;
     position: relative;
 }
-
 .bg-triangle{
     position: absolute;
     left: 50%;
@@ -164,3 +163,10 @@ body{
 
 /* End of game-body */
 
+/* Start of footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* End of footer */
