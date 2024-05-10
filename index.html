@@ -2,79 +2,84 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="./resources/css/main.css">
-
-  <title>REDI Project | Rock, Paper, Scissors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDI project | Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="./resources/css/main.css">
 </head>
 
 <body>
-  <!-- Start of game-header -->
-  <header class="main-container">
-    <div class="main-content">
-      <h1 class="header-text">
-        Rock <br>
-        Paper <br>
-        Scissors
-      </h1>
-      <div class="header-scorebox">
-        <h4 class="scorebox-key">Score</h4>
-        <span class="scorebox-value">0</span>
-      </div>
-    </div>
-  </header>
-  <!-- End of game-header -->
-
-  <!-- Game Container-->
-  <main>
-    <div class="game-container">
-      <img class="bg-triangle" src="./images/bg-triangle.svg" alt="">
-      <!-- Game Item -->
-    </div>
-    <!-- Start of Rules button -->
-    <div class="rules-btn">
-      <button id="open" onclick="sayHello()">Rules</button>
-    </div>
-    <div class="popup-container">
-      <div class="popup" id="popup_container">
-        <div class="popup-rule">
-          <h2>RULES</h2>
-          <button class="close" id="close">X</button>
+    <!-- Start of header -->
+    <header class="game-container">
+        <div class="game-header">
+            <h1 class="header-text">
+                Rock <br>
+                Paper <br>
+                Scissors
+            </h1>
+            <div class="header-scorebox">
+                <h4 class="scorebox-key">Score</h4>
+                <span class="scorebox-value" id="playerScoreDisplay">0</span>
+            </div>
         </div>
-        <div class="popup-img">
-          <img src="./images/image-rules.svg" alt="">
+    </header>
+    <!-- End of header -->
+
+    <!-- Start of game-body -->
+    <main>
+        <div class="game-body">
+            <img class="bg-triangle" src="images/bg-triangle.svg" alt="">
         </div>
-      </div>
-    </div>
-    <!-- End of Rules button -->
+        <!-- Start game-item -->
+        <div class="choices-container">
+            <div class="choices">
+                <div class="icon" id="icon-paper" onclick="playGame('paper')"><img id="iconImg"
+                        src="./images/icon-paper.svg" alt="">
+                </div>
+                <div class="icon" id="icon-rock" onclick="playGame('rock')"><img id="iconImg"
+                        src="./images/icon-rock.svg" alt="">
+                </div>
+                <div class="icon" id="icon-scissors" onclick="playGame('scissors')"><img id="iconImg"
+                        src="./images/icon-scissors.svg" alt="">
+                </div>
+            </div>
+        </div>
 
-  </main>
+        <!-- Start of game-logic & display-->
+        <div class="display">
+            <div id="playerDisplay">PLAYER: </div>
+            <div id="computerDisplay">COMPUTER: </div>
+            <div id="resultDisplay"></div>
+        </div>
+        <!-- End of game-logic & display-->
 
-  <div>
-    You Picked
-    The House Picked
+        <!-- Start game-item -->
 
-    You Win
-    You Lose
+        <!-- Start of Rules button -->
+        <div class="rules-btn">
+            <button id="open" onclick="sayHello()">Rules</button>
+        </div>
+        <div class="popup-container">
+            <div class="popup" id="popup_container">
+                <div class="popup-rule">
+                    <h2>RULES</h2>
+                    <button class="close" id="close">✖</button>
+                </div>
+                <div class="popup-img">
+                    <img src="images/image-rules.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- End of Rules button -->
+    </main>
+    <!-- End of game-body -->
 
-    Play Again
-  </div>
+    <footer class="game-footer">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Angelo Centeno</a>.
+    </footer>
 
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Angelo Centeno</a>.
-  </footer>
-
-  <script src="./resources/js/main.js"></script>
-  <script src="./resources/js/gameLogic.js"></script>
+    <script src="./resources/js/main.js"></script>
 </body>
 
 </html>
