@@ -22,50 +22,54 @@ color: hsl(229, 25%, 31%);
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
-
 /* Intialization */
-* {
-    box-sizing: border-box;
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html{
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 body{
+
     background-image: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));  
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
 }
 /* Start of game-header */
-.main-container{
+.game-container{
     display: flex;
     justify-content: center;
 }
-.main-container >div{
+.game-header{
+    /* width: 90%;
+    max-width: 1000px; */
     border: 5px solid hsl(217, 16%, 45%);
     border-radius: 5px;
     padding: 1rem;
-    width: 50rem;
+    width: 52.5rem;
     margin: 1.5rem auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
     transition: width 0.5s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .header-text{
     color: #ddd;
-    text-transform: uppercase;
     font-weight: 600;
+    font-size: 2rem;
     line-height: 0.85;
 }
 .header-scorebox{
-    padding: 0.5rem 1rem;
+    padding: .8rem 1.2rem;
     background-color: #ddd;
     text-align: center;
     border-radius: 5px;
+    margin: 4px 4px;
 }
 .scorebox-key{
     text-transform: uppercase;
@@ -75,7 +79,7 @@ body{
 }
 .scorebox-value{
     color: hsl(229, 25%, 31%);
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1;
     transition: all 0.3s ease-in-out;
@@ -83,7 +87,7 @@ body{
 /* End of game-header */
 
 /* Start of game-body */
-.game-container{
+.game-body{
     width: 30rem;
     min-height: 26.25rem;
     margin: auto;
@@ -92,15 +96,77 @@ body{
 .bg-triangle{
     position: absolute;
     left: 50%;
-    top: 0;
+    margin-top: 100px;
     transform: translateX(-50%);
     width: 75%;
     transition: all 0.5s ease-in-out;
 }
+/* Start game-item */
+.choices-container{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-around;
+    width: 95vh;
+    height: 85vh;
+    margin-top: -425px;
+    margin-left: 390px;
+}
+.choices{
+    display: flex;
+}
+.icon{
+    padding: 3.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 25%);
+    background-color: hsl(0, 0%, 80%);;
+    transition: all background-color .5s ease-in-out;
+}
+.icon:hover{
+    transform: scale(1.1);
+    /* transform-origin: bottom; */
+    background-color: hsl(0, 0%, 90%);
+    transition: all .5s ease-in-out;
+}
+
+#iconImg{
+    transform: scale(1.5); /* This will increase the size of the SVG/IMG */
+}
+#icon-rock{
+    flex-wrap: wrap;
+    position: absolute;
+    border: 30px solid hsl(0, 60%, 50%);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 25%);
+    left: 565px;
+    top: 460px;
+}
+#icon-paper{
+    position: absolute;
+    align-self: flex-start;
+    border: 30px solid hsl(240, 60%, 50%);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 25%);
+    left: 400px;
+    bottom: 170px;
+}
+#icon-scissors{
+    position: absolute;
+    align-self: flex-start;
+    border: 30px solid hsl(51, 70%, 50%);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 25%);
+    right: 400px;
+    bottom: 170px;
+}
+
+/* End game-item */
+
     /* Start of Rules button */
 .rules-btn{
     display: flex;
     justify-content: end;
+    margin-top: 100px;
 }
 .rules-btn >button{ 
     background-color: transparent;
@@ -108,21 +174,22 @@ body{
     color: #c9c9c9;
     text-transform: uppercase;
     border-radius: 7px;
-    font-size: 1rem;
+    font-size: .8rem;
     letter-spacing: 5px;
     margin: -6.5rem 3rem 4rem auto;
-    width: 9rem; 
+    width: 8rem; 
     text-align: center;
     font-weight: 600;
     line-height: 1.2;
     padding: 9 0 0 9;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 .popup-img{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;   
 }
 .popup{
     width: 400px;
@@ -131,19 +198,25 @@ body{
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
     text-align: center;
     padding: 20px 30px 30px 30px;
     color: #333;
     margin-top: -400px;
-    opacity: 0;
+    opacity: 0%;
     pointer-events: none; /* enable click thru hidden object*/
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.1s ease-in-out;
+    /* transition: all 0.1s ease-in-out; */
+    /* slide down */
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in-out, opacity 0.4s ease;
+    transform: translate(-50%, -100%);
 }
 .popup.show{
     pointer-events: auto;
     opacity: 1;
+    /* slide down */
+    transform: translate(-50%, 50%);
 }
 .popup-rule{
     color: #3b4363;
@@ -153,13 +226,46 @@ body{
     padding: 4px 0 30px 0;
 }
 .close{
-    border: none;
+    border: 1px solid #eee;
     color: grey; 
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
     font-size: 1.5rem;
     font-weight: 500;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
     /* End of Rules button */
+
+    /* Start of display */
+.display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+#playerDisplay, #computerDisplay{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+#resultDisplay{
+    font-size: 5rem;
+    margin: 30px 0;
+}
+.greenText{
+    color: hsl(130, 100%, 50%);
+}
+.redText{
+    color: hsl(0, 100%, 50%);
+}
+    /* End of display */
+
+    /* Start of scoring-mechanism */  
+    
+    /* End of scoring-mechanism */ 
 
 /* End of game-body */
 
@@ -170,3 +276,4 @@ footer{
     align-items: center;
 }
 /* End of footer */
+
